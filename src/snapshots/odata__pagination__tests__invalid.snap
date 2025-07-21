@@ -1,0 +1,24 @@
+---
+source: src/pagination.rs
+assertion_line: 85
+expression: "Skip::try_from(\"\").unwrap_err() + \"\\n\" +\n&Skip::try_from(\"$skip=text\").unwrap_err() + \"\\n\" +\n&Top::try_from(\"\").unwrap_err() + \"\\n\" +\n&Top::try_from(\"$top=text\").unwrap_err()"
+---
+Error: found end of input expected 'skip'
+   ╭─[ <unknown>:1:1 ]
+ 1 │
+   │╰ found end of input expected 'skip'
+
+Error: found 'text' expected offset, or cursor
+   ╭─[ <unknown>:1:7 ]
+ 1 │$skip=text
+   │        ╰── found 'text' expected offset, or cursor
+
+Error: found end of input expected 'top'
+   ╭─[ <unknown>:1:1 ]
+ 1 │
+   │╰ found end of input expected 'top'
+
+Error: found 'text' expected offset, or cursor
+   ╭─[ <unknown>:1:6 ]
+ 1 │$top=text
+   │       ╰── found 'text' expected offset, or cursor

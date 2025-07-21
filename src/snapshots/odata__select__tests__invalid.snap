@@ -1,0 +1,14 @@
+---
+source: src/select.rs
+assertion_line: 58
+expression: "Select::try_from(\"\").unwrap_err() + \"\\n\" +\n&Select::try_from(\"$select='str'\").unwrap_err()"
+---
+Error: found end of input expected 'select'
+   ╭─[ <unknown>:1:1 ]
+ 1 │
+   │╰ found end of input expected 'select'
+
+Error: found 'str' expected '*', identifiers, or end of input
+   ╭─[ <unknown>:1:9 ]
+ 1 │$select='str'
+   │          ╰─── found 'str' expected '*', identifiers, or end of input

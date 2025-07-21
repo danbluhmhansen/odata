@@ -1,0 +1,19 @@
+name: CI
+on:
+  push:
+    branches: ["dev"]
+  pull_request:
+    branches: ["dev"]
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: "write"
+      contents: "read"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: DeterminateSystems/determinate-nix-action@main
+      - uses: DeterminateSystems/magic-nix-cache-action@main
+      - uses: DeterminateSystems/flake-checker-action@main
+      - name: Run `nix flake check`
+        run: nix flake check --all-systems --print-build-logs

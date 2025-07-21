@@ -1,0 +1,14 @@
+---
+source: src/orderby.rs
+assertion_line: 51
+expression: "Orderby::try_from(\"\").unwrap_err() + \"\\n\" +\n&Orderby::try_from(\"$orderby='str'\").unwrap_err()"
+---
+Error: found end of input expected 'orderby'
+   ╭─[ <unknown>:1:1 ]
+ 1 │
+   │╰ found end of input expected 'orderby'
+
+Error: found 'str' expected identifiers with direction, or end of input
+   ╭─[ <unknown>:1:10 ]
+ 1 │$orderby='str'
+   │           ╰─── found 'str' expected identifiers with direction, or end of input

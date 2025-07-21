@@ -1,0 +1,37 @@
+[package]
+name        = "odata"
+version     = "0.1.0"
+edition     = "2024"
+license     = "LGPL-3.0"
+authors     = ["Dan Bluhm Hansen <00.pavers_dither@icloud.com>"]
+description = "`odata` is an OData (Open Data Protocol) query options parser."
+homepage    = "https://github.com/danbluhmhansen/odata"
+repository  = "https://github.com/danbluhmhansen/odata"
+readme      = "README.md"
+keywords    = ["api", "http", "odata", "parser", "web"]
+categories  = ["data-structures", "development-tools", "parser-implementations", "parsing", "web-programming"]
+
+[dev-dependencies]
+divan             = "0.1.21"
+insta             = "1.43.1"
+pretty_assertions = "1.4.1"
+
+[dependencies]
+ariadne      = "0.5.1"
+chumsky      = "1.0.0-alpha.8"
+jiff         = { version = "0.2.15", optional = true }
+logos        = "0.15.1"
+rust_decimal = { version = "1.37.2", optional = true }
+
+[dependencies.derive_more]
+features = ["display", "deref", "from", "into_iterator"]
+git      = "https://github.com/JelteF/derive_more"
+
+[[bench]]
+name    = "odata"
+harness = false
+
+[features]
+default      = ["jiff", "rust_decimal"]
+jiff         = ["dep:jiff"]
+rust_decimal = ["dep:rust_decimal"]

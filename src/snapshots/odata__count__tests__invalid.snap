@@ -1,0 +1,14 @@
+---
+source: src/count.rs
+assertion_line: 55
+expression: "Count::try_from(\"\").unwrap_err() + \"\\n\" +\n&Count::try_from(\"$count=no\").unwrap_err()"
+---
+Error: found end of input expected 'count'
+   ╭─[ <unknown>:1:1 ]
+ 1 │
+   │╰ found end of input expected 'count'
+
+Error: found 'no' expected true, false, or end of input
+   ╭─[ <unknown>:1:8 ]
+ 1 │$count=no
+   │        ╰─ found 'no' expected true, false, or end of input
